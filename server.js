@@ -1,23 +1,28 @@
 const express = require("express");
+const { engine } = require("express-handlebars");
 const path = require("path");
 const dotenv = require("dotenv").config();
 
 const app = express();
 
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
+app.set("views", "./views");
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "pages/index.html"));
+  res.render("pages/index");
 });
 app.get("/about", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "pages/about.html"));
+  res.render("pages/about");
 });
 app.get("/contact", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "pages/contact.html"));
+  res.render("pages/contact");
 });
 app.get("/blog", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "pages/blog.html"));
+  res.render("pages/blog");
 });
 
 app.listen(process.env.PORT, () => {
