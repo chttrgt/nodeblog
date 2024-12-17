@@ -1,3 +1,5 @@
+Bu eğitim çalışması [Arin Yazılım](https://www.youtube.com/@ArinYazilim) kanalından takip edilerek yapılmıştır. Sizler de abone olup takip edebilirsiniz. Hocamızın gerçekten çok güzel bir anlatımı var.
+
 # Node.js & Express.js Projesi
 
 Bu proje, **Node.js** ve **Express.js** kullanımı üzerine pratik yapmak ve temel web sunucusu mantığını öğrenmek için oluşturulmuştur. Proje kapsamında bir Express.js sunucusu kurulmuş ve basit bir yapı üzerinde çeşitli özellikler eklenmiştir.
