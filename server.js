@@ -1,35 +1,23 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const { engine } = require("express-handlebars");
 const path = require("path");
 const dotenv = require("dotenv").config();
+const router = require("./routes");
 
 const app = express();
+
+mongoose.connect(process.env.MONGODB_URI);
 
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.render("pages/index");
-});
-app.get("/about", (req, res) => {
-  res.render("pages/about");
-});
-app.get("/contact", (req, res) => {
-  res.render("pages/contact");
-});
-app.get("/blog", (req, res) => {
-  res.render("pages/blog");
-});
-app.get("/login", (req, res) => {
-  res.render("pages/login");
-});
-app.get("/register", (req, res) => {
-  res.render("pages/register");
-});
+app.use("/", router);
 
 app.listen(process.env.PORT, () => {
   console.log(

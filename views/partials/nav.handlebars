@@ -25,8 +25,22 @@
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog">Blog</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="blogDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Blog
+          </a>
+          <div class="dropdown-menu" aria-labelledby="blogDropdown">
+            <a class="dropdown-item" href="/blog">View Blog</a>
+            <a class="dropdown-item" href="/blog/new">Add New Post</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contact">Contact</a>

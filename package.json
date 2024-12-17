@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch server.js"
+    "dev": "nodemon --watch ./server.js"
   },
   "keywords": [],
   "author": "cihatturgut",
@@ -13,7 +13,8 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "express-handlebars": "^7.1.3"
+    "express-handlebars": "^7.1.3",
+    "mongoose": "^8.9.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.9",
