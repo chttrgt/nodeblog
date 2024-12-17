@@ -1,13 +1,21 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/blog/new", (req, res) => {
+const Post = require("../../models/Post");
+
+router.get("/new", (req, res) => {
   res.render("pages/addNewPost");
 });
 
-router.post("/posts/test", (req, res) => {
-  console.log(req.body);
-  res.redirect("/");
+router.post("/test", (req, res) => {
+  Post.create(req.body)
+    .then(() => {
+      console.log(req.body);
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 module.exports = router;
