@@ -970,3 +970,16 @@ span.writer {
 .blog-content .fas {
   color: #fd8a10;
 }
+
+/*------------------------------------*\
+	Blog Dropdown
+\*------------------------------------*/
+
+.dropdown-item {
+  transition: all 0.3s linear !important;
+}
+
+.dropdown-item:hover {
+  background-color: #fd8a10;
+  color: #fff;
+}
