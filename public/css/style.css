@@ -164,6 +164,17 @@ nav.shrink {
   background-color: #fd8a10 !important;
 }
 
+#mainNav.shrink .navbar-nav .nav-item .nav-link.active,
+#mainNav.shrink .navbar-nav .nav-item .nav-link:hover {
+  color: black !important;
+  font-weight: bold;
+}
+
+#mainNav.shrink .navbar-brand:hover {
+  color: black !important;
+  font-weight: bold;
+}
+
 .navbar-brand.shrink,
 .navbar-container.shrink,
 .navbar.fixed-top.shrink,
