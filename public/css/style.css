@@ -983,3 +983,11 @@ span.writer {
   background-color: #fd8a10;
   color: #fff;
 }
+
+/*------------------------------------*\
+	Pagination
+\*------------------------------------*/
+
+#pagiNav {
+  background-color: white !important;
+}
