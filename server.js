@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { engine } = require("express-handlebars");
+const fileUpload = require("express-fileupload");
 const path = require("path");
 const dotenv = require("dotenv").config();
 const router = require("./routes");
@@ -16,6 +17,8 @@ app.set("views", "./views");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(fileUpload());
 
 app.use("/", router);
 
