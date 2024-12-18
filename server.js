@@ -5,12 +5,13 @@ const fileUpload = require("express-fileupload");
 const path = require("path");
 const dotenv = require("dotenv").config();
 const router = require("./routes");
+const formatDate = require("./helpers/generateDate");
 
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URI);
 
-app.engine("handlebars", engine());
+app.engine("handlebars", engine({ helpers: { formatDate } }));
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 

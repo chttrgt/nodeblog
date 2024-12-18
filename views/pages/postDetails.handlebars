@@ -19,7 +19,10 @@
           <div class="blog-content">
             <ul class="blog-meta">
               <li><i class="fas fa-user"></i>John Doe</li>
-              <li><i class="fas fa-clock"></i>18 Oct</li>
+              <li><i class="fas fa-clock"></i>{{formatDate
+                  post.date
+                  "MMM DD YYYY"
+                }}</li>
               <li><i class="fas fa-comments"></i>57</li>
             </ul>
             <h3>{{post.title}}</h3>
