@@ -6,8 +6,8 @@ const User = require("../../models/User");
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      console.error("Oturum silinirken hata oluştu:", err);
-      return res.send("Logout sırasında bir hata oluştu.");
+      console.error("Error deleting session:", err);
+      return res.send("An error occurred during logout.");
     }
     res.clearCookie("connect.sid");
     res.redirect("/");
