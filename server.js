@@ -8,6 +8,7 @@ const router = require("./routes");
 const formatDate = require("./helpers/generateDate");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const User = require("./models/User");
 
 const app = express();
 
@@ -54,6 +55,37 @@ app.use((req, res, next) => {
     };
   }
   next();
+});
+
+/* IsAdmin Middleware */
+
+app.use((req, res, next) => {
+  const { userId } = req.session;
+
+  if (!userId) {
+    res.locals.user = null;
+    return next();
+  }
+
+  User.findById(userId)
+    .then((user) => {
+      if (user) {
+        res.locals.user = {
+          username: user.username,
+          avatar: user.avatar,
+          profession: user.profession,
+          isAdmin: user.role === "admin",
+        };
+      } else {
+        res.locals.user = null;
+      }
+      next();
+    })
+    .catch((error) => {
+      console.error("Error fetching user:", error);
+      res.locals.user = null;
+      next();
+    });
 });
 
 app.use(fileUpload());

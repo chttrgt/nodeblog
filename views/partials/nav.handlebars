@@ -5,6 +5,7 @@
 >
   <div class="container">
     <a class="navbar-brand js-scroll-trigger" href="/">NODEW</a>
+
     <button
       class="navbar-toggler navbar-toggler-right"
       type="button"
@@ -17,6 +18,7 @@
       Menu
       <i class="fas fa-bars"></i>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase ml-auto">
         <li class="nav-item">
@@ -45,6 +47,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/contact">Contact</a>
         </li>
+
         {{#unless authLinks}}
           <li class="nav-item">
             <a class="nav-link" href="/auth/login">Log In</a>
@@ -53,6 +56,26 @@
             <a class="nav-link" href="/users/register">Register</a>
           </li>
         {{/unless}}
+
+        {{#if authLinks}}
+          <li class="nav-item d-flex flex-row align-items-center">
+            <a class="nav-link" href="#">{{user.username}}</a>
+            <img
+              src="{{user.avatar}}"
+              alt="user"
+              width="40"
+              height="40"
+              class="img-fluid rounded-circle ml-1 mr-3 my-1"
+            />
+          </li>
+        {{/if}}
+
+        {{#if user.isAdmin}}
+          <li class="nav-item adminModeOn">
+            <a class="nav-link" href="/admin">Admin Mode</a>
+          </li>
+        {{/if}}
+
         {{#if authLinks}}
           <li class="nav-item">
             <a class="nav-link" href="/users/logout">Log Out</a>

@@ -14,6 +14,18 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  profession: {
+    type: String,
+    required: true,
+  },
+  role: {
+    type: String,
+    default: "user",
+  },
+  avatar: {
+    type: String,
+    default: "/img/user-avatars/user.png",
+  },
   date: {
     type: Date,
     default: Date.now,

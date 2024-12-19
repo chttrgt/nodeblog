@@ -1002,3 +1002,17 @@ span.writer {
 #pagiNav {
   background-color: white !important;
 }
+
+/*------------------------------------*\
+  Admin Page
+\*------------------------------------*/
+
+.adminModeOn {
+  background-color: rgba(32, 178, 171, 0.37);
+  border-radius: 5px;
+  transition: all 0.3s linear;
+}
+
+.adminModeOn:hover {
+  background-color: transparent;
+}
