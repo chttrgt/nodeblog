@@ -7,6 +7,7 @@ const dotenv = require("dotenv").config();
 const router = require("./routes");
 const formatDate = require("./helpers/generateDate");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 const app = express();
 
@@ -22,6 +23,10 @@ app.use(express.json());
 
 app.use(
   session({
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      collectionName: "sessions",
+    }),
     secret: "cihatturgut",
     resave: false,
     saveUninitialized: true,
