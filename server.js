@@ -6,6 +6,7 @@ const path = require("path");
 const dotenv = require("dotenv").config();
 const router = require("./routes");
 const formatDate = require("./helpers/generateDate");
+const session = require("express-session");
 
 const app = express();
 
@@ -18,6 +19,14 @@ app.set("views", "./views");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(
+  session({
+    secret: "cihatturgut",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(fileUpload());
 

@@ -9,7 +9,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
-  console.log("EMAIL: ", email, "PASSWORD: ", password);
+
   if (!email || !password) {
     console.log("Please provide an email and password.");
     res.redirect("/auth/login");
@@ -26,6 +26,7 @@ router.post("/login", (req, res) => {
         return res.redirect("/auth/login");
       }
 
+      req.session.userId = user._id;
       res.redirect("/");
     })
     .catch((error) => {
