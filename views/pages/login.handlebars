@@ -18,7 +18,9 @@
         </div>
       </div>
     </div>
-
+    {{#if flash.message}}
+      <div class="{{flash.type}}">{{flash.message}}</div>
+    {{/if}}
     <div class="row">
       <div class="col-lg-12">
         <form action="/auth/login" method="post">

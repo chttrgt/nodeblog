@@ -14,6 +14,10 @@ router.post("/register", (req, res) => {
     password: req.body.password,
   })
     .then((user) => {
+      req.session.flash = {
+        type: "alert alert-success",
+        message: "User created successfully.",
+      };
       res.redirect("/auth/login");
     })
     .catch((error) => {

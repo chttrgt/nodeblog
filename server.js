@@ -33,6 +33,13 @@ app.use(
   })
 );
 
+/* Flash - Message Middleware */
+app.use((req, res, next) => {
+  res.locals.flash = req.session.flash;
+  delete req.session.flash;
+  next();
+});
+
 app.use(fileUpload());
 
 app.use("/", router);

@@ -32,7 +32,11 @@ router.post("/test", (req, res) => {
     post_image: `/img/post-images/${post_image.name}`,
   })
     .then(() => {
-      res.redirect("/");
+      req.session.flash = {
+        type: "alert alert-success",
+        message: "Post created successfully.",
+      };
+      res.redirect("/blog");
     })
     .catch((err) => {
       console.log(err);
