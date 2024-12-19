@@ -29,7 +29,7 @@ app.use(
     }),
     secret: "cihatturgut",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
   })
 );
 
@@ -37,6 +37,22 @@ app.use(
 app.use((req, res, next) => {
   res.locals.flash = req.session.flash;
   delete req.session.flash;
+  next();
+});
+
+/* Display Links Middleware */
+
+app.use((req, res, next) => {
+  const { userId } = req.session;
+  if (userId) {
+    res.locals = {
+      authLinks: true,
+    };
+  } else {
+    res.locals = {
+      authLinks: false,
+    };
+  }
   next();
 });
 

@@ -3,6 +3,17 @@ const router = express.Router();
 
 const User = require("../../models/User");
 
+router.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Oturum silinirken hata oluştu:", err);
+      return res.send("Logout sırasında bir hata oluştu.");
+    }
+    res.clearCookie("connect.sid");
+    res.redirect("/");
+  });
+});
+
 router.get("/register", (req, res) => {
   res.render("pages/register");
 });
