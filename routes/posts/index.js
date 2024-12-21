@@ -2,19 +2,28 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const Post = require("../../models/Post");
+const Category = require("../../models/Category");
 
 router.get("/new", (req, res) => {
   if (!req.session.userId) {
     return res.redirect("/auth/login");
   }
-  res.render("pages/addNewPost");
+  Category.find({})
+    .lean()
+    .then((categories) => {
+      res.render("pages/addNewPost", { categories });
+    });
 });
 
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id)
     .lean()
     .then((post) => {
-      res.render("pages/postDetails", { post });
+      Category.find({})
+        .lean()
+        .then((categories) => {
+          res.render("pages/postDetails", { post, categories });
+        });
     })
     .catch((err) => {
       console.log(err);

@@ -82,7 +82,11 @@ router.get("/blog", (req, res) => {
     .lean()
     .sort({ $natural: -1 })
     .then((posts) => {
-      res.render("pages/blog", { posts });
+      Category.find({})
+        .lean()
+        .then((categories) => {
+          res.render("pages/blog", { posts, categories });
+        });
     })
     .catch((err) => {
       console.log(err);

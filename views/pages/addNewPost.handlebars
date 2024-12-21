@@ -38,6 +38,23 @@
               </div>
 
               <div class="form-group">
+                <select
+                  class="form-control custom-select"
+                  name="category"
+                  required="required"
+                  data-validation-required-message="Please select a category."
+                >
+                  <option value="" disabled selected hidden>
+                    Select a Category *
+                  </option>
+                  {{#each categories}}
+                    <option value="{{_id}}">{{name}}</option>
+                  {{/each}}
+                </select>
+                <p class="help-block text-danger"></p>
+              </div>
+
+              <div class="form-group">
                 <textarea
                   class="form-control"
                   name="content"
