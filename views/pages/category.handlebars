@@ -53,25 +53,24 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">ID</th>
               <th scope="col">Category Name</th>
+              <th scope="col">Date</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
             {{#each categories}}
               <tr>
-                <td>{{_id}}</td>
                 <td>{{name}}</td>
+                <td>{{formatDate createdAt "MMM DD YYYY, HH:mm:ss"}}</td>
                 <td>
-                  <a
-                    href="/categories/edit/{{id}}"
-                    class="btn btn-primary"
-                  >Edit</a>
-                  <a
-                    href="/categories/delete/{{id}}"
-                    class="btn btn-danger"
-                  >Delete</a>
+                  <form
+                    method="post"
+                    action="/admin/categories/{{_id}}?_method=DELETE"
+                  >
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
                 </td>
               </tr>
             {{/each}}

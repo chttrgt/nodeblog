@@ -5,6 +5,7 @@ const fileUpload = require("express-fileupload");
 const path = require("path");
 const dotenv = require("dotenv").config();
 const router = require("./routes");
+const methodOverride = require("method-override");
 const formatDate = require("./helpers/generateDate");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -18,6 +19,7 @@ app.engine("handlebars", engine({ helpers: { formatDate } }));
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
+app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
