@@ -3,6 +3,7 @@ const router = express.Router();
 const Post = require("../../models/Post");
 const isAdminMiddleware = require("../../middlewares/isAdminMiddleware");
 const Category = require("../../models/Category");
+const User = require("../../models/User");
 
 router.get("/", (req, res) => {
   res.render("pages/index");
@@ -80,6 +81,7 @@ router.delete(
 router.get("/blog", (req, res) => {
   Post.find({})
     .lean()
+    .populate({ path: "author", model: User })
     .sort({ $natural: -1 })
     .then((posts) => {
       Category.find({})

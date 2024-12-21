@@ -14,6 +14,11 @@ const PostSchema = new mongoose.Schema({
     ref: "Category",
     required: true,
   },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   post_image: {
     type: String,
     required: true,

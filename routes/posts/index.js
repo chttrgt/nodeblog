@@ -18,6 +18,7 @@ router.get("/new", (req, res) => {
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id)
     .lean()
+    .populate({ path: "author", select: "username" })
     .then((post) => {
       Category.find({})
         .lean()
@@ -39,6 +40,7 @@ router.post("/test", (req, res) => {
   Post.create({
     ...req.body,
     post_image: `/img/post-images/${post_image.name}`,
+    author: req.session.userId,
   })
     .then(() => {
       req.session.flash = {
