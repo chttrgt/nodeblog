@@ -1,0 +1,59 @@
+<!--==========================
+    INSIDE HERO SECTION Section
+============================-->
+<section class="page-image page-image-about md-padding">
+  <h1 class="text-white text-center">ADMINISTRATOR</h1>
+</section>
+
+<!--==========================
+    ADMIN-PAGE Section
+============================-->
+<section id="aboutus" class="md-padding">
+  <div class="container">
+    {{> admin-nav}}
+  </div>
+</section>
+
+<!--==========================
+    THE POSTS Section
+============================-->
+
+<section id="posts" class="md-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Posts</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">TITLE</th>
+              <th scope="col">CATEGORY NAME</th>
+              <th scope="col">EDIT</th>
+              <th scope="col">DELETE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each posts}}
+              <tr>
+                <td>{{title}}</td>
+                <td>{{category.name}}</td>
+                <td>
+                  <a class="btn btn-info" href="/admin/posts/{{_id}}">Edit</a>
+                </td>
+                <td>
+                  <form
+                    method="post"
+                    action="/admin/posts/{{_id}}?_method=DELETE"
+                  >
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

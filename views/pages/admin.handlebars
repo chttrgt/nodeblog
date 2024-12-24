@@ -1,0 +1,58 @@
+<!--==========================
+    INSIDE HERO SECTION Section
+============================-->
+<section class="page-image page-image-about md-padding">
+  <h1 class="text-white text-center">ADMINISTRATOR</h1>
+</section>
+
+<!--==========================
+    ADMIN-PAGE Section
+============================-->
+<section id="aboutus" class="md-padding">
+  <div class="container">
+    {{> admin-nav}}
+  </div>
+</section>
+
+<!--==========================
+    THE TEAM
+============================-->
+
+<section id="team" class="md-padding">
+  <div class="container">
+
+    <div class="row text-center">
+      <div class="col-md-4 offset-md-4">
+        <div class="section-header">
+          <h2 class="title">The Administrator</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="offset-md-4 col-md-4">
+        <div class="team-member">
+          <img class="mx-auto rounded-circle" src="{{user.avatar}}" alt="admin.avatar" />
+          <h4>{{user.username}}</h4>
+          <p class="text-muted">{{user.profession}}</p>
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
